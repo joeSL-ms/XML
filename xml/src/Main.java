@@ -1,3 +1,4 @@
+import module.Entrenamiento;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
@@ -32,26 +33,7 @@ public class Main {
 
             Element root = doc.getDocumentElement();
 
-// Crear un nuevo elemento "entrenamiento"
-            Element nuevoEntrenamiento = doc.createElement("entrenamiento");
-            nuevoEntrenamiento.setAttribute("id", String.valueOf(entrenamiento.getId()));
-
-            Element nombre = doc.createElement("nombre");
-            nombre.setTextContent(entrenamiento.getNombre());
-
-            Element duracion = doc.createElement("duracion");
-            duracion.setTextContent(String.valueOf(entrenamiento.getDuracion()));
-
-            Element nivel = doc.createElement("nivel");
-            nivel.setTextContent(entrenamiento.getNivel());
-
-            nuevoEntrenamiento.appendChild(nombre);
-            nuevoEntrenamiento.appendChild(duracion);
-            nuevoEntrenamiento.appendChild(nivel);
-
-            root.appendChild(nuevoEntrenamiento);
-
-// Guardar los cambios en el archivo XML
+            // Guardar los cambios en el archivo XML
             TransformerFactory transformerFactory = TransformerFactory.newInstance();
             Transformer transformer = transformerFactory.newTransformer();
             DOMSource source = new DOMSource(doc);
